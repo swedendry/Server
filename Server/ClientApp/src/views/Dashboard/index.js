@@ -9,7 +9,7 @@ export default function Main() {
             backgroud: 'linear-gradient(to right, #6190E8 100%, #A7BFE8 80%, #6190E8 100%)',
             icon: <IoIosSearch size={60} color="#fff" />,
             description: 'Github',
-            url: 'https://github.com/swedendry',
+            url: 'https://github.com/swedendry/Server',
         },
         {
             backgroud: 'linear-gradient(to right, #6190E8 100%, #A7BFE8 80%, #6190E8 100%)',
