@@ -14,6 +14,7 @@ using Server.Databases;
 using Server.Databases.Redis.Core;
 using Server.Hubs;
 using Server.Services;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Server
@@ -25,8 +26,6 @@ namespace Server
             Configuration = configuration;
         }
 
-        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -37,19 +36,6 @@ namespace Server
             }).CreateMapper());
 
             services.AddControllersWithViews();
-
-            //services.Configure<ForwardedHeadersOptions>(options =>
-            //{
-            //    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-            //});
-
-            //services.AddCors(options => options.AddPolicy("CorsPolicy",
-            //builder =>
-            //{
-            //    builder.AllowAnyMethod().AllowAnyHeader()
-            //           .WithOrigins("http://40.89.248.76:80")
-            //           .AllowCredentials();
-            //}));
 
             services.AddSignalR();
 
@@ -67,6 +53,24 @@ namespace Server
                     Title = "Web",
                     Description = "Web API",
                 });
+
+                c.AddSecurityDefinition("Bearer",
+                new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+                {
+                    new OpenApiSecurityScheme{
+                            Reference = new OpenApiReference{
+                            Id = "Bearer",
+                            Type = ReferenceType.SecurityScheme
+                        }
+                    },new List<string>()
+                }
+                });
             });
 
             //sql
@@ -76,7 +80,7 @@ namespace Server
             //redis
             services.AddSingleton<IRepository, Repository>(provider =>
             {
-                return new Repository(Configuration.GetSection("Redis:Cloud").Value);
+                return new Repository(Configuration.GetSection("Redis:Dev").Value);
             });
             services.AddScoped<ILeaderboardService, LeaderboardService>();
 
@@ -125,8 +129,6 @@ namespace Server
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Web API V1");
             });
-
-            //app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {

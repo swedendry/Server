@@ -15,13 +15,13 @@ export default function Main() {
             backgroud: 'linear-gradient(to right, #6190E8 100%, #A7BFE8 80%, #6190E8 100%)',
             icon: <IoIosSearch size={60} color="#fff" />,
             description: 'Kibana',
-            url: 'http://13.86.6.125:5601/',
+            url: 'http://52.231.118.142:5601/',
         },
         {
             backgroud: 'linear-gradient(to right, #6190E8 100%, #A7BFE8 80%, #6190E8 100%)',
             icon: <IoIosRocket size={60} color="#fff" />,
             description: 'Swagger',
-            url: 'http://40.89.248.76:80/swagger/index.html',
+            url: 'http://52.231.118.149:80/swagger/index.html',
         },
         //{
         //  backgroud: 'linear-gradient(to right, #02aab0, #00cdac)',

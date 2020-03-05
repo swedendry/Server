@@ -82,6 +82,11 @@ export default function Main() {
     const handleLogin = e => {
         e.preventDefault();
 
+        if (user.email === '') {    //guest
+            user.email = 'guest';
+            user.password = 'guest';
+        }
+
         if (validateFields()) {
             onLogin(user.email, user.password);
         }
@@ -148,6 +153,15 @@ export default function Main() {
                         type="submit"
                     >
                         Login
+                    </Button>
+                    <Button
+                        variant="contained"
+                        size="medium"
+                        style={stylePrimary}
+                        className={classes.margin}
+                        type="submit"
+                    >
+                        Guest
                     </Button>
                 </Form>
             </Box>
