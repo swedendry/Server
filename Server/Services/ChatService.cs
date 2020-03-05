@@ -32,11 +32,11 @@ namespace Server.Services
         public async Task Login(string connectionId, string id)
         {
             var code = 1;
-            var duplicationuser = GetUser(id);
-            if (duplicationuser != null)
-            {   //중복
-                _users.Remove(duplicationuser);
-            }
+            //var duplicationuser = GetUser(id);
+            //if (duplicationuser != null)
+            //{   //중복
+            //    _users.Remove(duplicationuser);
+            //}
 
             var user = new User()
             {
