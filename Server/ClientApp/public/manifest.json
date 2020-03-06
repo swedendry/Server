@@ -1,6 +1,6 @@
 {
-  "short_name": "WisecatAdmin",
-  "name": "WisecatAdmin",
+  "short_name": "server",
+  "name": "Server",
   "icons": [
     {
       "src": "favicon.ico",
