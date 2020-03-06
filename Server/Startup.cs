@@ -80,7 +80,7 @@ namespace Server
             //redis
             services.AddSingleton<IRepository, Repository>(provider =>
             {
-                return new Repository(Configuration.GetSection("Redis:Cloud").Value);
+                return new Repository(Configuration.GetSection("Redis:Dev").Value);
             });
             services.AddScoped<ILeaderboardService, LeaderboardService>();
 

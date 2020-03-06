@@ -51,6 +51,19 @@ export const stylePrimary = {
     backgroundImage: 'linear-gradient(to right, #6190E8 100%, #A7BFE8 100%, #6190E8 100%)',
 };
 
+export const styleGuest = {
+    background: '#2980b9',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    outline: 'none',
+    width: '100%',
+    height: '40px',
+    margin: '0',
+    textTransform: 'capitalize',
+    backgroundImage: 'linear-gradient(to right, #ff7e5f 0%, #feb47b 100%, #ff7e5f 100%)',
+};
+
 const useStyles = makeStyles(theme => ({
     margin: {
         margin: theme.spacing(1),
@@ -157,7 +170,7 @@ export default function Main() {
                     <Button
                         variant="contained"
                         size="medium"
-                        style={stylePrimary}
+                        style={styleGuest}
                         className={classes.margin}
                         type="submit"
                     >
